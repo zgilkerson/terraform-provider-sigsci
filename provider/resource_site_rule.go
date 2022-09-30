@@ -205,6 +205,30 @@ func resourceSiteRule() *schema.Resource {
 							Default:     600,
 							Required:    true,
 						},
+						"client_identifier": {
+							Type:        schema.TypeSet,
+							Description: "Client Identifier",
+							Optional:    true,
+							Elem: &schema.Resource{
+								Schema: map[string]*schema.Schema{
+									"key": {
+										Type:        schema.TypeString,
+										Description: "Optional Key Name",
+										Optional:    true,
+									},
+									"name": {
+										Type:         schema.TypeString,
+										Description:  "name of the value to use as a Client Identifier",
+										Optional:     true,
+									},
+									"type": {
+										Type:        schema.TypeString,
+										Description: "(requestHeader)",
+										Required:    true,
+									},
+								},
+							},
+						}
 					},
 				},
 			},
